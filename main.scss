@@ -2,7 +2,9 @@
 
 header {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
 }
 
 header > a {
@@ -11,10 +13,43 @@ header > a {
   padding: 1.5rem;
 
   color: #d1d8c5;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+div.menu::before {
+  content: "";
+  top: -175%;
+}
+
+header > a.menu {
+  height: 3rem;
+  aspect-ratio: 1;
+
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+div.menu::after {
+  content: "";
+  top: 75%;
+}
+
+div.menu,
+div.menu::before,
+div.menu::after {
+  position: relative;
+  display: block;
+  height: 0.5rem;
+  aspect-ratio: 6;
+
+  background-color: #eee;
+
+  border-radius: 8% 8% 8% 8% / 40% 40% 40% 40%;
 }
 
 body {
-  overflow-x: hidden;
   padding-left: 5%;
   padding-right: 5%;
   margin: 0;
@@ -22,7 +57,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
 
-  height: 100dvh;
+  min-height: 100dvh;
   background-color: #615efc;
 }
 
