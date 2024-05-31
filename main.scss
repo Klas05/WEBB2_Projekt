@@ -9,16 +9,21 @@ header > a {
   display: block;
   text-align: center;
   padding: 1.5rem;
+
+  color: #d1d8c5;
 }
 
 body {
   overflow-x: hidden;
-}
-
-main,
-header {
   padding-left: 5%;
   padding-right: 5%;
+  margin: 0;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  height: 100dvh;
+  background-color: #615efc;
 }
 
 .content > h2 {
@@ -26,8 +31,42 @@ header {
 }
 
 .banner {
-  background: url(images/banner-1.webp) no-repeat;
+  background: url(images/banner.webp) no-repeat center center;
   background-size: cover;
-  height: 400px;
-  width: 857px;
+  height: 350px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+
+  margin-bottom: 1.5rem;
+}
+
+.club {
+  grid-column: 3/4;
+}
+
+.banner p {
+  font-size: 8rem;
+  color: #eee;
+  margin: 0;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+* {
+  color: #eee;
+  font-family: "Titillium Web", sans-serif;
+  // font-weight: 400;
+  font-style: normal;
+}
+
+a {
+  color: #7e8ef1;
 }
