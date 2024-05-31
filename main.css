@@ -1,0 +1,31 @@
+header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+header > a {
+  display: block;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+main,
+header {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.content > h2 {
+  margin-top: 0px;
+}
+
+.banner {
+  background: url(images/banner-1.webp) no-repeat;
+  background-size: cover;
+  height: 400px;
+  width: 857px;
+}/*# sourceMappingURL=main.css.map */
