@@ -1,6 +1,6 @@
 @use "partials/" as *;
 
-header {
+navbar {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -12,6 +12,7 @@ header {
 main {
   position: relative;
   top: -10rem;
+  margin-bottom: -10rem;
 }
 
 footer {
@@ -25,9 +26,8 @@ footer {
 }
 
 a.menu {
-  background-color: #615efc;
   position: relative;
-  left: -5.5rem;
+  right: calc(40px + 2.5dvw);
   top: -4.5rem;
 }
 
@@ -38,7 +38,7 @@ a.menu {
   justify-self: center;
 }
 
-header > a {
+navbar > a {
   display: block;
   text-align: center;
   padding: 1rem;
@@ -53,7 +53,7 @@ div.menu::before {
   top: -175%;
 }
 
-header > a.menu {
+navbar > a.menu {
   height: 3rem;
   aspect-ratio: 1;
 
@@ -81,8 +81,8 @@ div.menu::after {
 }
 
 body {
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 5dvw;
+  padding-right: 5dvw;
   margin: 0;
 
   display: grid;
@@ -137,26 +137,6 @@ h2 {
 
 a {
   color: #7e8ef1;
-}
-
-footer {
-  padding-top: 0;
-  margin-top: 0;
-}
-
-main {
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-footer {
-  padding-top: 0;
-  margin-top: 0;
-}
-
-main {
-  padding-bottom: 0;
-  margin-bottom: 0;
 }
 
 .content .wrapper {

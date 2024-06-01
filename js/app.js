@@ -17,7 +17,7 @@ function playMenuAnimation() {
   menuAnimation.clear();
 
   menuAnimation
-    .to("main", { y: 80, duration: 0.4, ease: "back(1)" })
+    .to("main, footer", { y: 80, duration: 0.4, ease: "back(1)" })
     .fromTo(
       ".slide",
       { y: 0, opacity: 0 },
