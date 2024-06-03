@@ -11,12 +11,8 @@ var menuAnimation = gsap.timeline({ paused: true });
 let expanded = false;
 
 // Variabler för att hålla koll på fönstrets storlek.
-viewPortWidth = window.innerWidth;
+// viewPortWidth = window.innerWidth;
 viewPortHeight = window.innerHeight;
-
-console.log(viewPortHeight * 0.07 + 32);
-console.log(viewPortHeight * 0.07 + 16);
-console.log(viewPortHeight * 0.07);
 
 /**
  * Denna funktion kallas när menyn ska öppnas. Först återställs tidslinjen så att inget återfinns inuti den. Sedan skapas animationen för menyn och spelas upp.

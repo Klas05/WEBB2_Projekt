@@ -1,101 +1,12 @@
 @use "partials/" as *;
 
-nav {
-  height: 7dvh;
-
-  position: relative;
-  display: grid;
-
-  background-color: map-get($map: $v-clr-list, $key: nav-clr);
-}
-
-main {
-  position: relative;
-  top: -7vh;
-}
-
-footer {
-  grid-row: 3/4;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color: map-get($map: $v-clr-list, $key: footer-clr);
-
-  padding: 0 1rem;
-}
-
-.gdpr {
-  grid-column: 2/3;
-}
-
-a.menu {
-  position: absolute;
-  left: calc($v-menuSize * -0.5 - 5vmin);
-  bottom: calc(3.5dvh - $v-menuSize/2);
-
-  height: $v-menuSize;
-  aspect-ratio: 1;
-
-  display: grid;
-  justify-self: start;
-
-  padding: 0;
-}
-
-.slide {
-  position: relative;
-  top: -7dvh;
-  grid-row: 1/-1;
-
-  justify-self: center;
-  align-self: center;
-}
-
-nav a {
-  display: block;
-  // padding: 1rem;
-
+* {
   color: map-get($map: $v-clr-list, $key: black);
-  font-weight: bold;
-  font-size: $v-fontSize;
-  // grid-row: 1/-1;
-
-  text-decoration: none;
-}
-
-.sitescontainer {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-}
-
-div.menu::before {
-  content: "";
-  top: -185%;
-}
-
-div.menu::after {
-  content: "";
-  top: 85%;
-}
-
-div.menu,
-div.menu::before,
-div.menu::after {
-  position: relative;
-  display: block;
-  height: $v-menuSize/6;
-  aspect-ratio: 6;
-
-  background-color: map-get($map: $v-clr-list, $key: black);
-
-  border-radius: 8% 8% 8% 8% / 40% 40% 40% 40%;
-}
-
-div.menu {
-  top: $v-menuSize/3;
+  font-family: "Titillium Web", sans-serif;
+  font-style: normal;
 }
 
 body {
-  padding: 0 10vmin;
   margin: 0;
 
   display: grid;
@@ -103,34 +14,6 @@ body {
 
   min-height: 100dvh;
   background-color: map-get($map: $v-clr-list, $key: main-clr);
-}
-
-.content > h2 {
-  margin-top: 0px;
-}
-
-.banner {
-  background: url(images/banner.webp) no-repeat center center/cover;
-  background-size: cover;
-  height: 35dvh;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-
-  margin-bottom: 1.5rem;
-
-  z-index: 2;
-}
-
-.club {
-  grid-column: 3/4;
-}
-
-.banner p {
-  font-size: clamp(5rem, 5.634vmin + 1.239rem, 8rem);
-  color: map-get($map: $v-clr-list, $key: black);
-  margin: 0;
 }
 
 p {
@@ -141,26 +24,144 @@ h2 {
   font-size: 2rem;
 }
 
-* {
-  color: map-get($map: $v-clr-list, $key: black);
-  font-family: "Titillium Web", sans-serif;
-  // font-weight: 400;
-  font-style: normal;
-}
-
 a {
   color: #7e8ef1;
+  &:hover {
+    color: #3e56f3;
+  }
 }
 
-.content .wrapper {
+header {
+  height: 7dvh;
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+  background-color: map-get($map: $v-clr-list, $key: header-clr);
+
+  padding: 0 10vmin;
+
+  a {
+    display: block;
+
+    color: map-get($map: $v-clr-list, $key: black);
+    font-weight: bold;
+    font-size: $v-fontSize;
+
+    text-decoration: none;
+  }
+  a.menu {
+    position: relative;
+    left: calc($v-menuSize * -0.5 - 5vmin);
+    top: calc(3.5dvh - $v-menuSize/2);
+
+    height: $v-menuSize;
+    aspect-ratio: 1;
+
+    display: grid;
+    justify-self: start;
+
+    padding: 0;
+    z-index: 1;
+    div.menu {
+      top: $v-menuSize/3;
+      &:before {
+        top: -185%;
+      }
+      &:after {
+        top: 85%;
+      }
+      &:before,
+      &:after {
+        content: "";
+      }
+      &:before,
+      &:after,
+      & {
+        position: relative;
+        display: block;
+        height: $v-menuSize/6;
+        aspect-ratio: 6;
+
+        background-color: map-get($map: $v-clr-list, $key: black);
+
+        border-radius: 8% 8% 8% 8% / 40% 40% 40% 40%;
+      }
+    }
+  }
+  nav {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    position: absolute;
+    left: 10vmin;
+
+    width: calc(100dvw - 20vmin);
+    height: 7dvh;
+
+    .slide {
+      position: relative;
+      top: -7dvh;
+
+      justify-self: center;
+      align-self: center;
+    }
+  }
 }
 
-.wrapper h2 {
-  margin: 0;
+main {
+  position: relative;
+  top: -7vh;
+
+  padding: 0 10vmin;
+  .content {
+    h2 {
+      margin-top: 0px;
+    }
+    .wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      h2 {
+        margin: 0;
+      }
+      article {
+        padding-right: 2rem;
+      }
+    }
+  }
+  .banner {
+    background: url(images/banner.webp) no-repeat center center/cover;
+    background-size: cover;
+    height: 35dvh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+    margin-bottom: 1.5rem;
+
+    z-index: 2;
+
+    p {
+      font-size: clamp(5rem, 2.336vw + 4.197rem, 7rem);
+      font-weight: 600;
+      color: map-get($map: $v-clr-list, $key: black);
+      margin: 0;
+    }
+    .club {
+      grid-column: 3/4;
+    }
+  }
 }
 
-.wrapper > article {
-  padding-right: 2rem;
+footer {
+  grid-row: 3/4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: map-get($map: $v-clr-list, $key: footer-clr);
+
+  // padding: 0 1rem;
+  padding: 0 calc(10vmin + 1rem);
+  .gdpr {
+    grid-column: 2/3;
+  }
 }
