@@ -1,0 +1,138 @@
+@mixin header($backgroundColor, $detailColor, $fontSize, $menuSize) {
+  height: 7dvh;
+  position: relative;
+  display: grid;
+
+  background-color: $backgroundColor;
+
+  padding: 0 10vmin;
+
+  a {
+    display: block;
+
+    color: $detailColor;
+    font-weight: bold;
+    font-size: $fontSize;
+
+    text-decoration: none;
+  }
+  a.menu {
+    position: relative;
+    left: calc($menuSize * -0.5 - 5vmin);
+    top: calc(3.5dvh - $menuSize/2);
+
+    height: $menuSize;
+    aspect-ratio: 1;
+
+    display: grid;
+    justify-self: start;
+
+    z-index: 1;
+    div.menu {
+      top: $menuSize/3;
+      &:before {
+        top: -200%;
+      }
+      &:after {
+        top: 100%;
+      }
+      &:before,
+      &:after {
+        content: "";
+      }
+      &:before,
+      &:after,
+      & {
+        position: relative;
+        display: block;
+        height: $menuSize/6;
+        aspect-ratio: 6;
+
+        background-color: $detailColor;
+
+        border-radius: 8% 8% 8% 8% / 40% 40% 40% 40%;
+      }
+    }
+  }
+  nav {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    position: absolute;
+    left: 10vmin;
+
+    width: calc(100dvw - 20vmin);
+    height: 7dvh;
+
+    .slide {
+      position: relative;
+      top: -7dvh;
+
+      justify-self: center;
+      align-self: center;
+    }
+  }
+}
+
+@mixin main($detailColor) {
+  position: relative;
+  top: -7dvh;
+
+  padding: 0 10vmin;
+  .content {
+    h2 {
+      margin-top: 0px;
+    }
+    .wrapper.pcsystem {
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      img {
+        max-width: calc(500px - 2rem);
+      }
+    }
+    .wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      h2 {
+        margin: 0;
+      }
+      article {
+        padding: 1rem;
+      }
+    }
+  }
+  .banner {
+    background: url(images/banner.webp) no-repeat center center/cover;
+    background-size: cover;
+    height: 35dvh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+    margin-bottom: 1.5rem;
+
+    z-index: 2;
+
+    p {
+      font-size: clamp(5rem, 2.336vw + 4.197rem, 7rem);
+      font-weight: 600;
+      color: $detailColor;
+      margin: 0;
+    }
+    .club {
+      grid-column: 3/4;
+    }
+  }
+}
+
+@mixin footer($footerColor) {
+  grid-row: 3/4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: $footerColor;
+
+  padding: 0 calc(10vmin + 1rem);
+  .gdpr {
+    grid-column: 2/3;
+  }
+}

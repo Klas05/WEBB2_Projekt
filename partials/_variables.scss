@@ -1,10 +1,10 @@
 $menuSize: 4vmin;
 
-$clr-list: (
-  header-clr: #ffbf78,
-  main-clr: #feffd2,
-  footer-clr: #ff7d29,
-  black: black,
+$colorList: (
+  headerColor: #ffbf78,
+  mainColor: #feffd2,
+  footerColor: #ff7d29,
+  detailColor: black,
 );
 
 $fontSize: clamp(0.5rem, 1.69vw - 0.028rem, 2rem);
