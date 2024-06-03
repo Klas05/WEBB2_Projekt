@@ -10,6 +10,14 @@ var menuAnimation = gsap.timeline({ paused: true });
 // Variabel för att hålla koll på om menyn är öppen eller stängd
 let expanded = false;
 
+// Variabler för att hålla koll på fönstrets storlek.
+viewPortWidth = window.innerWidth;
+viewPortHeight = window.innerHeight;
+
+console.log(viewPortHeight * 0.07 + 32);
+console.log(viewPortHeight * 0.07 + 16);
+console.log(viewPortHeight * 0.07);
+
 /**
  * Denna funktion kallas när menyn ska öppnas. Först återställs tidslinjen så att inget återfinns inuti den. Sedan skapas animationen för menyn och spelas upp.
  */
@@ -17,11 +25,21 @@ function playMenuAnimation() {
   menuAnimation.clear();
 
   menuAnimation
-    .to("main, footer", { y: 80, duration: 0.4, ease: "back(1)" })
+    .to("main, footer", {
+      y: viewPortHeight * 0.07,
+      duration: 0.4,
+      ease: "back(1)",
+    })
     .fromTo(
       ".slide",
       { y: 0, opacity: 0 },
-      { y: 80, opacity: 1, duration: 0.4, stagger: 0.08, ease: "back(1)" },
+      {
+        y: viewPortHeight * 0.07,
+        opacity: 1,
+        duration: 0.4,
+        stagger: 0.08,
+        ease: "back(1)",
+      },
       "<"
     )
     .play();
@@ -51,4 +69,8 @@ menu.addEventListener("click", function (e) {
     reverseMenuAnimation();
   }
   expanded = !expanded;
+});
+
+window.addEventListener("resize", function (e) {
+  viewPortHeight = window.innerHeight;
 });

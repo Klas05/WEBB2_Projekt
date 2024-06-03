@@ -1,21 +1,21 @@
-navbar {
+nav {
+  height: 7dvh;
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  align-items: center;
-  z-index: 1;
+  background-color: #ffbf78;
 }
 
 main {
   position: relative;
-  top: -10rem;
-  margin-bottom: -10rem;
+  top: -7vh;
 }
 
 footer {
   grid-row: 3/4;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background-color: #ff7d29;
+  padding: 0 1rem;
 }
 
 .gdpr {
@@ -23,43 +23,45 @@ footer {
 }
 
 a.menu {
-  position: relative;
-  right: calc(40px + 2.5dvw);
-  top: -4.5rem;
+  position: absolute;
+  left: -7vmin;
+  bottom: calc(3.5dvh - 2vmin);
+  height: 4vmin;
+  aspect-ratio: 1;
+  display: grid;
+  justify-self: start;
+  padding: 0;
 }
 
 .slide {
   position: relative;
-  top: -5rem;
+  top: -7dvh;
   grid-row: 1/-1;
   justify-self: center;
+  align-self: center;
 }
 
-navbar > a {
+nav a {
   display: block;
-  text-align: center;
-  padding: 1rem;
-  color: #d1d8c5;
+  color: black;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: clamp(0.5rem, 1.69vw - 0.028rem, 2rem);
+  text-decoration: none;
+}
+
+.sitescontainer {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
 }
 
 div.menu::before {
   content: "";
-  top: -175%;
-}
-
-navbar > a.menu {
-  height: 3rem;
-  aspect-ratio: 1;
-  display: grid;
-  justify-items: center;
-  align-items: center;
+  top: -185%;
 }
 
 div.menu::after {
   content: "";
-  top: 75%;
+  top: 85%;
 }
 
 div.menu,
@@ -67,20 +69,23 @@ div.menu::before,
 div.menu::after {
   position: relative;
   display: block;
-  height: 0.5rem;
+  height: 0.6666666667vmin;
   aspect-ratio: 6;
-  background-color: #eee;
+  background-color: black;
   border-radius: 8% 8% 8% 8%/40% 40% 40% 40%;
 }
 
+div.menu {
+  top: 1.3333333333vmin;
+}
+
 body {
-  padding-left: 5dvw;
-  padding-right: 5dvw;
+  padding: 0 10vmin;
   margin: 0;
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100dvh;
-  background-color: #615efc;
+  background-color: #feffd2;
 }
 
 .content > h2 {
@@ -88,15 +93,15 @@ body {
 }
 
 .banner {
-  background: url(images/banner.webp) no-repeat center center;
+  background: url(images/banner.webp) no-repeat center center/cover;
   background-size: cover;
-  height: 350px;
+  height: 35dvh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
   margin-bottom: 1.5rem;
-  z-index: -1;
+  z-index: 2;
 }
 
 .club {
@@ -104,8 +109,8 @@ body {
 }
 
 .banner p {
-  font-size: 8rem;
-  color: #eee;
+  font-size: clamp(5rem, 5.634vmin + 1.239rem, 8rem);
+  color: black;
   margin: 0;
 }
 
@@ -118,7 +123,7 @@ h2 {
 }
 
 * {
-  color: #eee;
+  color: black;
   font-family: "Titillium Web", sans-serif;
   font-style: normal;
 }
@@ -128,8 +133,8 @@ a {
 }
 
 .content .wrapper {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 .wrapper h2 {
