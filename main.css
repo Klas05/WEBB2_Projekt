@@ -20,6 +20,10 @@ h2 {
   font-size: 2rem;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
 a {
   color: #7e8ef1;
 }
@@ -95,6 +99,12 @@ main {
 main .content h2 {
   margin-top: 0px;
 }
+main .content .wrapper.pcsystem {
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+main .content .wrapper.pcsystem img {
+  max-width: calc(500px - 2rem);
+}
 main .content .wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -103,7 +113,7 @@ main .content .wrapper h2 {
   margin: 0;
 }
 main .content .wrapper article {
-  padding-right: 2rem;
+  padding: 1rem;
 }
 main .banner {
   background: url(images/banner.webp) no-repeat center center/cover;

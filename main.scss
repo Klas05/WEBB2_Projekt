@@ -24,6 +24,10 @@ h2 {
   font-size: 2rem;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
 a {
   color: #7e8ef1;
   &:hover {
@@ -117,6 +121,12 @@ main {
     h2 {
       margin-top: 0px;
     }
+    .wrapper.pcsystem {
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      img {
+        max-width: calc(500px - 2rem);
+      }
+    }
     .wrapper {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -124,7 +134,7 @@ main {
         margin: 0;
       }
       article {
-        padding-right: 2rem;
+        padding: 1rem;
       }
     }
   }
