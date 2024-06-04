@@ -2,9 +2,10 @@
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
-      name="Medlemsförmåner"
-      content="width=device-width, initial-scale=1.0"
+      name="description"
+      content="Information kring abc-klubbens datorsystem"
     />
     <title>Datorsystem</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -61,7 +62,7 @@
             <h2>Översiktlig skiss över datorsystemet</h2>
             <p><b>I en principskiss ser systemet ut så här:</b></p>
             <img
-              src="/images/datorsystem.png"
+              src="/images/datorsystem.webp"
               alt="Skiss över vårat datorsystem"
               title="Skiss över vårat datorsystem"
             />
@@ -103,11 +104,17 @@
               i vårt system. Lite förenklat kan man säga att Hekla och Etna
               processar information medan Siw och Sonja lagrar och säkrar den.
             </p>
+          </article>
+          <article>
+            <h2>Hekla</h2>
             <p>
               Hekla är vår nya mailserver och kör operativsystemet OpenBSD. Här
               rullar våra epostservrar för IMAP och POP3 och här finns även
               klubbens webbmail.
             </p>
+          </article>
+          <article>
+            <h2>Etna</h2>
             <p>
               Etna kör operativsystemet Debian. På Etna ligger bland annat den
               webbserver som gör att du kan läsa denna och andra sidor på vår
@@ -119,6 +126,9 @@
               Etna finns även time.abc.se numera. Etna är en skalserver, där
               medlemmarna kan logga in i systemet (Linux).
             </p>
+          </article>
+          <article>
+            <h2>Siw och Sonja</h2>
             <p>
               Siw och Sonja är våra två NAS-servrar (Network Attached Storage).
               De är av fabrikat Qnap och har varsin AMD Opteron 64-bitars

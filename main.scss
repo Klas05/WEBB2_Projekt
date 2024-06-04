@@ -16,6 +16,18 @@ body {
   background-color: map-get($map: $v-colorList, $key: mainColor);
 }
 
+@media (max-width: $v-breakpointPhone) {
+  body {
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 100dvw 100dvw;
+    overflow: hidden;
+    max-width: 100dvw;
+  }
+  html {
+    overflow-x: hidden;
+  }
+}
+
 p {
   font-size: 1.25rem;
 }
@@ -29,9 +41,9 @@ h1 {
 }
 
 a {
-  color: #7e8ef1;
+  color: map-get($map: $v-colorList, $key: linkColor);
   &:hover {
-    color: #3e56f3;
+    color: map-get($map: $v-colorList, $key: linkHoverColor);
   }
 }
 

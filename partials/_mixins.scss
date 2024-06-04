@@ -1,5 +1,7 @@
+@import "variables.scss";
+
 @mixin header($backgroundColor, $detailColor, $fontSize, $menuSize) {
-  height: 7dvh;
+  height: $headerHeight;
   position: relative;
   display: grid;
 
@@ -62,21 +64,60 @@
     left: 10vmin;
 
     width: calc(100dvw - 20vmin);
-    height: 7dvh;
+    height: $headerHeight;
 
     .slide {
       position: relative;
-      top: -7dvh;
+      top: -$headerHeight;
 
       justify-self: center;
       align-self: center;
+    }
+  }
+  @media (max-width: $breakpointPhone) {
+    grid-row: 1/4;
+    grid-column: 1/2;
+    height: 100dvh;
+    width: calc(100dvw - 20vmin);
+    left: -100dvw;
+    z-index: 1;
+    grid-template-rows: auto 1fr;
+
+    a {
+      font-size: $mobileFontSize;
+    }
+
+    a.menu {
+      position: absolute;
+      left: calc(100dvw - $menuSize/2 + 5vmin);
+    }
+
+    nav {
+      grid-template-rows: repeat(6, 1fr);
+      grid-template-columns: 1fr;
+      // justify-self: center;
+      align-self: center;
+      height: 80dvh;
+      .slide {
+        top: 0;
+      }
+    }
+  }
+  @media (min-width: $breakpointLandscape) and (max-height: $breakpointPhone) {
+    height: $headerHeightLandscape;
+    align-items: center;
+    nav .slide {
+      top: -$headerHeightLandscape;
+    }
+    a.menu {
+      top: calc($headerHeightLandscape/2 - 7dvh);
     }
   }
 }
 
 @mixin main($detailColor) {
   position: relative;
-  top: -7dvh;
+  top: -$headerHeight;
 
   padding: 0 10vmin;
   .content {
@@ -88,15 +129,28 @@
       img {
         max-width: calc(500px - 2rem);
       }
+      @media (max-width: $breakpointPhone) {
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(400px, calc(100dvw - 20vmin))
+        );
+        img {
+          max-width: calc(100dvw - 20vmin - 2rem);
+          border-radius: 20%;
+        }
+      }
     }
     .wrapper {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 1rem;
       h2 {
         margin: 0;
       }
       article {
         padding: 1rem;
+        background-color: map-get($map: $colorList, $key: articleColor);
+        border-radius: 2rem;
       }
     }
   }
@@ -114,7 +168,7 @@
     z-index: 2;
 
     p {
-      font-size: clamp(5rem, 2.336vw + 4.197rem, 7rem);
+      font-size: $bannerFontSize;
       font-weight: 600;
       color: $detailColor;
       margin: 0;
@@ -122,6 +176,14 @@
     .club {
       grid-column: 3/4;
     }
+  }
+  @media (max-width: $breakpointPhone) {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    left: -100dvw;
+  }
+  @media (min-width: $breakpointLandscape) and (max-height: $breakpointPhone) {
+    top: -$headerHeightLandscape;
   }
 }
 
@@ -134,5 +196,18 @@
   padding: 0 calc(10vmin + 1rem);
   .gdpr {
     grid-column: 2/3;
+  }
+  @media (max-width: $breakpointPhone) {
+    grid-row: 2/3;
+    grid-column: -2/-1;
+    position: relative;
+    left: -100dvw;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+
+    .gdpr {
+      grid-column: auto;
+    }
   }
 }

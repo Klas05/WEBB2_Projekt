@@ -11,8 +11,16 @@ var menuAnimation = gsap.timeline({ paused: true });
 let expanded = false;
 
 // Variabler för att hålla koll på fönstrets storlek.
-// viewPortWidth = window.innerWidth;
+viewPortWidth = window.innerWidth;
 viewPortHeight = window.innerHeight;
+
+var menuOffset;
+
+if ((viewPortWidth >= 1200) & (viewPortHeight <= 650)) {
+  menuOffset = viewPortHeight * 0.14;
+} else {
+  menuOffset = viewPortHeight * 0.07;
+}
 
 /**
  * Denna funktion kallas när menyn ska öppnas. Först återställs tidslinjen så att inget återfinns inuti den. Sedan skapas animationen för menyn och spelas upp.
@@ -20,25 +28,50 @@ viewPortHeight = window.innerHeight;
 function playMenuAnimation() {
   menuAnimation.clear();
 
-  menuAnimation
-    .to("main, footer", {
-      y: viewPortHeight * 0.07,
-      duration: 0.4,
-      ease: "back(1)",
-    })
-    .fromTo(
-      ".slide",
-      { y: 0, opacity: 0 },
-      {
-        y: viewPortHeight * 0.07,
-        opacity: 1,
+  if (viewPortWidth > 650) {
+    menuAnimation
+      .to("main, footer", {
+        y: menuOffset,
         duration: 0.4,
-        stagger: 0.08,
         ease: "back(1)",
-      },
-      "<"
-    )
-    .play();
+      })
+      .fromTo(
+        ".slide",
+        { y: 0, opacity: 0 },
+        {
+          y: menuOffset,
+          opacity: 1,
+          duration: 0.4,
+          stagger: 0.08,
+          ease: "back(1)",
+        },
+        "<"
+      )
+      .play();
+  }
+  if (viewPortWidth <= 650) {
+    menuAnimation
+      .to("main, footer", {
+        x: viewPortWidth,
+        duration: 0.4,
+        ease: "back(1)",
+      })
+      .fromTo(
+        "header",
+        { x: 0 },
+        {
+          x: viewPortWidth,
+          opacity: 1,
+          duration: 0.4,
+          stagger: 0.08,
+          ease: "back(1)",
+        },
+        "<"
+      )
+      .to("a.menu", { x: viewPortWidth * -1, ease: "back(1)" }, "<")
+      .play();
+    document.querySelector("html").style.overflowY = "hidden";
+  }
 }
 
 /**
@@ -46,6 +79,7 @@ function playMenuAnimation() {
  */
 function reverseMenuAnimation() {
   menuAnimation.reverse();
+  document.querySelector("html").style.overflowY = "visible";
 }
 
 /**
@@ -70,3 +104,9 @@ menu.addEventListener("click", function (e) {
 window.addEventListener("resize", function (e) {
   viewPortHeight = window.innerHeight;
 });
+
+gsap.fromTo(
+  ".abc, .club",
+  { opacity: 0, y: -100 },
+  { opacity: 1, stagger: 0.2, duration: 5, ease: "elastic.out", y: 0 }
+);

@@ -1,10 +1,25 @@
 $menuSize: 4vmin;
 
+$headerHeight: 7dvh;
+
+$headerHeightLandscape: 14dvh;
+
 $colorList: (
   headerColor: #ffbf78,
   mainColor: #feffd2,
   footerColor: #ff7d29,
   detailColor: black,
+  linkColor: #001390,
+  linkHoverColor: #3651ff,
+  articleColor: #ffeea9,
 );
 
-$fontSize: clamp(0.5rem, 1.69vw - 0.028rem, 2rem);
+$fontSize: clamp(0.75rem, 1.515vw + 0.182rem, 2rem);
+
+$mobileFontSize: clamp(1.5rem, 20vw - 3.5rem, 4rem);
+
+$bannerFontSize: clamp(3rem, 7.159vw - 1.591rem, 7rem);
+
+$breakpointPhone: 650px;
+
+$breakpointLandscape: 1200px;
