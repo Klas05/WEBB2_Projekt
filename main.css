@@ -1,3 +1,19 @@
+@charset "UTF-8";
+/*
+Mixin:en header läggs på "header" elementet. Dessa regler gör så att headern får rätt bakgrundfärger, rätt mellanrum från sidan av skärmen till innehållet samt att allting får rätt färger. Även menyknappen skapas här med hjälp av before och after element. Sedan hanteras barnet "nav" så att det elementet får rätt layout utefter vilken storlek på skärmen användaren har. Hela header och dess barn element justeras efter användarens storlek på skärmen, bredd och höjd.
+*/
+/*
+Denna mixin kallas på "main" elementet och ser till att den ligger rätt i "body" elementets grid layout beroende på skärmens storlek. Positionen justeras även så att gsap animationerna fungerar.
+*/
+/*
+Wrapper mixin:en inkluderas vid elementen "section" som har klassen wrapper på sidorna "info.html" och "pcsystems.html". Först kontrolleras vilken sida som ska ha reglerna och därefter tillämpas de korrekta reglerna till respektive sida. Mixin:en ser till att "article" elementen ligger i en automatiskt justerande grid layout och att bilder inte är för stora.
+*/
+/*
+Följande mixin inkluderas på banner div:en. Reglerna ser till att en bakgrundsbild tillämpas och positioneras korrekt. Därefter hanteras storleken och en grid layout till texten som är på bannern. Sedan hanteras textens stil och position.
+*/
+/*
+Mixin:en nedanför kontrollerar "footer" elementen i botten av sidan. Den ser främst till så att de två elementen inuti "footer" ligger i en grid layout på korrekt position och justeras till att ligga under varandra istället för bredvid när användaren har en mindre skärm.
+*/
 * {
   font-family: "Titillium Web", sans-serif;
   font-style: normal;
@@ -147,54 +163,6 @@ main {
 main .content h2 {
   margin-top: 0px;
 }
-main .content .wrapper.pcsystem {
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-}
-main .content .wrapper.pcsystem img {
-  max-width: calc(500px - 2rem);
-}
-@media (max-width: 650px) {
-  main .content .wrapper.pcsystem {
-    grid-template-columns: repeat(auto-fit, minmax(400px, calc(100dvw - 20vmin)));
-  }
-  main .content .wrapper.pcsystem img {
-    max-width: calc(100dvw - 20vmin - 2rem);
-    border-radius: 20%;
-  }
-}
-main .content .wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1rem;
-}
-main .content .wrapper h2 {
-  margin: 0;
-}
-main .content .wrapper article {
-  padding: 1rem;
-  background-color: #ffeea9;
-  border-radius: 2rem;
-}
-main .banner {
-  background: url(images/banner.webp) no-repeat center center/cover;
-  background-size: cover;
-  height: 35dvh;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-  margin-bottom: 1.5rem;
-  z-index: 2;
-}
-main .banner p {
-  font-size: clamp(3rem, 7.159vw - 1.591rem, 7rem);
-  font-weight: 600;
-  color: black;
-  margin: 0;
-}
-main .banner .club {
-  grid-column: 3/4;
-}
 @media (max-width: 650px) {
   main {
     grid-row: 1/2;
@@ -206,6 +174,63 @@ main .banner .club {
   main {
     top: -14dvh;
   }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1rem;
+}
+.wrapper h2 {
+  margin: 0;
+}
+.wrapper article {
+  padding: 1rem;
+  background-color: #ffeea9;
+  border-radius: 2rem;
+}
+@media (max-width: 650px) {
+  .wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+.wrapper.pcsystems {
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+.wrapper.pcsystems img {
+  max-width: calc(500px - 2rem);
+}
+@media (max-width: 650px) {
+  .wrapper.pcsystems {
+    grid-template-columns: repeat(auto-fit, minmax(300px, calc(100dvw - 20vmin)));
+  }
+  .wrapper.pcsystems img {
+    max-width: calc(100dvw - 20vmin - 2rem);
+    border-radius: 20%;
+  }
+}
+
+.banner {
+  background: url(images/banner.webp) no-repeat center center/cover;
+  background-size: cover;
+  height: 35dvh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 1.5rem;
+  z-index: 2;
+  padding: 1rem;
+}
+.banner p {
+  font-size: clamp(2.75rem, 7.159vw - 1.591rem, 7rem);
+  font-weight: 600;
+  color: black;
+  margin: 0;
+}
+.banner .club {
+  grid-column: 3/4;
 }
 
 footer {

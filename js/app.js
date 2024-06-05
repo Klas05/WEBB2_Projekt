@@ -14,8 +14,10 @@ let expanded = false;
 viewPortWidth = window.innerWidth;
 viewPortHeight = window.innerHeight;
 
+// Variabel som håller koll på hur mycket menyn ska "skjutas" ner beroende på skärmens storlek
 var menuOffset;
 
+// Sätter rätt värde på variabeln ovan genom att kontrollera skärmens storlek.
 if ((viewPortWidth >= 1200) & (viewPortHeight <= 650)) {
   menuOffset = viewPortHeight * 0.14;
 } else {
@@ -23,7 +25,7 @@ if ((viewPortWidth >= 1200) & (viewPortHeight <= 650)) {
 }
 
 /**
- * Denna funktion kallas när menyn ska öppnas. Först återställs tidslinjen så att inget återfinns inuti den. Sedan skapas animationen för menyn och spelas upp.
+ * Denna funktion kallas när menyn ska öppnas. Först återställs tidslinjen så att inget återfinns inuti den. Sedan skapas animationen för menyn och spelas upp. Skärmens storlek kontrolleras även så att det spelas en annan animation vid mobil layout.
  */
 function playMenuAnimation() {
   menuAnimation.clear();
@@ -101,10 +103,12 @@ menu.addEventListener("click", function (e) {
   expanded = !expanded;
 });
 
+// Uppdaterar värdet på variabeln "viewPortHeight" när användaren justerar fönstrets storlek
 window.addEventListener("resize", function (e) {
   viewPortHeight = window.innerHeight;
 });
 
+// Liten animering på texten som återfinns på bannern.
 gsap.fromTo(
   ".abc, .club",
   { opacity: 0, y: -100 },

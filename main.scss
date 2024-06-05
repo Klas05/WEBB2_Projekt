@@ -48,18 +48,24 @@ a {
 }
 
 header {
-  @include mx-header(
-    map-get($map: $v-colorList, $key: headerColor),
-    map-get($map: $v-colorList, $key: detailColor),
-    $v-fontSize,
-    $v-menuSize
-  );
+  @include mx-header();
 }
 
 main {
-  @include mx-main(map-get($map: $v-colorList, $key: detailColor));
+  @include mx-main();
+}
+
+.wrapper {
+  @include mx-wrapper($pcsystem: false);
+}
+.wrapper.pcsystems {
+  @include mx-wrapper($pcsystem: true);
+}
+
+.banner {
+  @include mx-banner();
 }
 
 footer {
-  @include mx-footer(map-get($map: $v-colorList, $key: footerColor));
+  @include mx-footer();
 }
