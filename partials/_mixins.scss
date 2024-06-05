@@ -142,7 +142,7 @@ Denna mixin kallas på "main" elementet och ser till att den ligger rätt i "bod
 }
 
 /*
-Wrapper mixin:en inkluderas vid elementen "section" som har klassen wrapper på sidorna "info.html" och "pcsystems.html". Först kontrolleras vilken sida som ska ha reglerna och därefter tillämpas de korrekta reglerna till respektive sida. Mixin:en ser till att "article" elementen ligger i en automatiskt justerande grid layout och att bilder inte är för stora.
+Wrapper mixin:en inkluderas vid div elementen som har klassen wrapper och/eller pcsystems på sidorna "info.html" och "pcsystems.html". Först kontrolleras vilken sida som ska ha reglerna och därefter tillämpas de korrekta reglerna till respektive sida. Mixin:en ser till att "article" elementen ligger i en automatiskt justerande grid layout och att bilder inte är för stora.
 */
 @mixin wrapper($pcsystem: true) {
   @if $pcsystem {
